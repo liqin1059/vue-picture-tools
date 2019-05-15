@@ -17,6 +17,7 @@
     "type": "git",
     "url": "https://github.com/liqin1059/vue-picture-tools.git"
   },
+  "keywords": ["vue", "preview", "image", "picture", "viewer"],
   "dependencies": {
     "swiper": "^4.5.0",
     "vue": "^2.5.11"
