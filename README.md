@@ -1,5 +1,5 @@
 # vue-picture-tools
-[![NPM version](https://img.shields.io/npm/v/upload-vue-m.svg)](https://www.npmjs.com/package/upload-vue-m)
+[![NPM version](https://img.shields.io/npm/v/vue-picture-tools.svg)](https://www.npmjs.com/package/vue-picture-tools)
 
 > vue picture preview tools👫
 
