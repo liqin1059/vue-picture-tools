@@ -1,4 +1,5 @@
 # vue-picture-tools
+[![NPM version](https://img.shields.io/npm/v/vue-picture-tools.svg)](https://www.npmjs.com/package/vue-picture-tools)
 
 > vue picture preview tools👫
 
@@ -70,6 +71,6 @@ Vue.use(preview)
 
 ![Image text](https://raw.githubusercontent.com/liqin1059/images/master/vue-preview-picture/picture-moblie.gif)
 
-源码地址：https://github.com/liqin1059/vue-picture-tools
+源码地址：[https://github.com/liqin1059/vue-picture-tools](https://github.com/liqin1059/vue-picture-tools)
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
