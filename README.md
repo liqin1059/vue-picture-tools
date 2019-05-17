@@ -34,19 +34,15 @@ Vue.use(preview)
 
 ``` html
 <picture-list
-  :box-width="boxWidth"
-  :width="width"
-  :height="height"
-  :margin="margin"
+  :boxStyle="boxStyle"
+  :listStyle="listStyle"
   :img-urls="imgUrls">
 </picture-list>
 ```
 | 参数 | 类型 | 备注 |
 |  ------ | ------ | ------ |
-| boxWidth | sting | 图片列表盒子宽 |
-| width | sting | 图片宽度 |
-| height | sting | 图片高度 |
-| margin | sting | 图片边距 |
+| boxStyle | Object | 图片列表盒子样式（驼峰命名：backgroundColor） |
+| listStyle | Object | 图片样式（驼峰命名：backgroundColor） |
 | imgUrls | array | 图片数组 |
 
 > 仅做图片查看
@@ -55,7 +51,8 @@ Vue.use(preview)
 <picture-preview
   :picture-index="pictureIndex"
   :picture-data="pictureData"
-  :is-delete="isDelete">
+  :is-delete="isDelete"
+  @picture-out="pictureOut">
 </picture-preview>
 ```
 
@@ -63,9 +60,26 @@ Vue.use(preview)
 |  ------ | ------ | ------ |
 | pictureIndex | number | 当前点击图片的index |
 | pictureData | array | 图片数组 |
-| isDelete | Boolean | 删除事件 |
+| isDelete | Boolean | 删除按钮展示 |
+| pictureOut | event | 图片单击回调事件（我用来做展示关闭事件回调） |
 
 图片数组格式
+
+```
+boxStyle: {
+  width: '100%'
+}
+```
+
+```
+listStyle: {
+  boxWidth: '100%',
+  width: '200px',
+  height: '200px',
+  margin: '10px 0 0 10px',
+}
+```
+
 ```
 [
   {

@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <ul class="picture-ul" :style="{'width': boxWidth}">
+    <ul class="picture-ul" :style="[boxStyle]">
       <li class="picture-li" v-for="(item, index) in imgUrls" :key="index"
         @click="showPicture(index, item)"
-        :style="{'background-image': 'url(' + item.url + ')', 'width': width, 'height': height, 'margin': margin}">
+        :style="[listStyle]">
+        <img :src="item.url" alt="">
       </li>
     </ul>
     <transition name="fadein-fade">
@@ -27,24 +28,24 @@ export default {
     'picture-preview': picturePreview
   },
   props: {
-    boxWidth: {
-      type: String,
-      default: '100%',
+    boxStyle: {
+      type: Object,
+      default: () => {
+        return {
+          width: '100%'
+        }
+      },
       required: false
     },
-    width: {
-      type: String,
-      default: '200px',
-      required: false
-    },
-    height: {
-      type: String,
-      default: '200px',
-      required: false
-    },
-    margin: {
-      type: String,
-      default: '10px 0 0 10px',
+    listStyle: {
+      type: Object,
+      default: () => {
+        return {
+          width: '200px',
+          height: '200px',
+          margin: '10px 0 0 10px',
+        }
+      },
       required: false
     },
     imgUrls: {
@@ -104,6 +105,11 @@ a {
 .picture-ul{
   display: inline-block;
   font-size: 0;
+}
+.picture-li img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .fadein-fade-enter-active {
   transition: all .3s ease;

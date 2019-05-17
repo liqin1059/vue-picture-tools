@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <picture-list
-      :box-width="boxWidth"
-      :width="width"
-      :height="height"
-      :margin="margin"
+      :boxStyle="boxStyle"
+      :listStyle="listStyle"
       :img-urls="imgUrls">
     </picture-list>
     <ul>
@@ -17,7 +15,7 @@
         :picture-index="pictureIndex"
         :picture-data="pictureData"
         :is-delete="isDelete"
-        @picture-out="previewShow = false">
+        @picture-out="pictureOut">
       </picture-preview>
   </div>
 </template>
@@ -27,10 +25,15 @@ export default {
   name: 'app',
   data () {
     return {
-      boxWidth: '100%',
-      width: '200px',
-      height: '200px',
-      margin: '10px 0 0 10px',
+      boxStyle: {
+        width: '100%'
+      },
+      listStyle: {
+        boxWidth: '100%',
+        width: '200px',
+        height: '200px',
+        margin: '10px 0 0 10px',
+      },
       imgUrls: [{
           url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3345425463,2829351688&fm=26&gp=0.jpg',
           desc: '图片一'
@@ -57,6 +60,9 @@ export default {
       this.$data.pictureData = this.$data.imgUrls;
       this.$data.pictureIndex = index;
       this.$data.isDelete = false;
+    },
+    pictureOut() {
+      this.$data.previewShow = false;
     }
   }
 }
