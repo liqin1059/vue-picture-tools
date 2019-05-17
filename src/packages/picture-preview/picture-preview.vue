@@ -114,7 +114,7 @@ export default {
 @import '../../../node_modules/swiper/dist/css/swiper.css';
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 }
 
 .fade-enter,

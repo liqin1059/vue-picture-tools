@@ -20,30 +20,51 @@
 npm install vue-picture-tools --save
 ```
 ## 引入
+
 在main.js中引入
+
 ```js
 import preview from 'vue-picture-tools'
 Vue.use(preview)
 ```
+
 在组件中使用
+
 > 包含图片列表&&展示
+
 ``` html
 <picture-list
-  :box-width="boxWidth" // 图片列表盒子宽
-  :width="width"  // 图片宽度
-  :height="height" // 图片高度
-  :margin="margin" // 图片边距
-  :img-urls="imgUrls"> // 图片数组
+  :box-width="boxWidth"
+  :width="width"
+  :height="height"
+  :margin="margin"
+  :img-urls="imgUrls">
 </picture-list>
 ```
+| 参数 | 类型 | 备注 |
+|  ------ | ------ | ------ |
+| boxWidth | sting | 图片列表盒子宽 |
+| width | sting | 图片宽度 |
+| height | sting | 图片高度 |
+| margin | sting | 图片边距 |
+| imgUrls | array | 图片数组 |
+
 > 仅做图片查看
+
 ``` html
 <picture-preview
-  :picture-index="pictureIndex" // 当前点击图片的index
-  :picture-data="pictureData" // 图片数组
-  :is-delete="isDelete">  // 删除事件
+  :picture-index="pictureIndex"
+  :picture-data="pictureData"
+  :is-delete="isDelete">
 </picture-preview>
 ```
+
+| 参数 | 类型 | 备注 |
+|  ------ | ------ | ------ |
+| pictureIndex | number | 当前点击图片的index |
+| pictureData | array | 图片数组 |
+| isDelete | Boolean | 删除事件 |
+
 图片数组格式
 ```
 [
@@ -61,6 +82,7 @@ Vue.use(preview)
   }
 ]
 ```
+
 # 效果展示
 
 > pc端
