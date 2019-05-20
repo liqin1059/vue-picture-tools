@@ -33,34 +33,44 @@ Vue.use(preview)
 
 ``` html
 <picture-list
-  :boxStyle="boxStyle"
-  :listStyle="listStyle"
-  :img-urls="imgUrls">
+  :box-style="boxStyle"
+  :list-style="listStyle"
+  :img-urls="imgUrls"
+  :is-delete="isDelete"
+  :dele-style="deleStyle"
+  @delete-picture="deletePicture">
 </picture-list>
 ```
-| 参数 | 类型 | 备注 |
-|  ------ | ------ | ------ |
-| boxStyle | Object | 图片列表盒子样式（驼峰命名：backgroundColor） |
-| listStyle | Object | 图片样式（驼峰命名：backgroundColor） |
-| imgUrls | array | 图片数组 |
+| 参数 | 类型 | 备注 | 默认值 |
+|  ------ | ------ | ------ | ------ |
+| boxStyle | Object | 图片列表盒子样式<br>（驼峰命名：backgroundColor） | {} |
+| listStyle | Object | 图片样式<br>（驼峰命名：backgroundColor） | {} |
+| imgUrls | Array | 图片数组 | [] |
+| isDelete | Boolean | 是否显示删除按钮 | false |
+| deleStyle | Boolean | 删除按钮样式<br>（驼峰命名：backgroundColor） | {} |
+| deletePicture | event | 删除事件回调（参数：index） |  |
 
 > 仅做图片查看
 
 ``` html
 <picture-preview
-  :picture-index="pictureIndex"
-  :picture-data="pictureData"
-  :is-delete="isDelete"
-  @picture-out="pictureOut">
+  :picture-index="0"
+  :picture-data="[]"
+  :is-delete="false"
+  :dele-style="deleStyle"
+  @picture-out="pictureOut"
+  @delete-picture="deletePicture">
 </picture-preview>
 ```
 
-| 参数 | 类型 | 备注 |
-|  ------ | ------ | ------ |
-| pictureIndex | number | 当前点击图片的index |
-| pictureData | array | 图片数组 |
-| isDelete | Boolean | 删除按钮展示 |
-| pictureOut | event | 图片单击回调事件（我用来做展示关闭事件回调） |
+| 参数 | 类型 | 备注 | 默认值 |
+|  ------ | ------ | ------ | ------ |
+| pictureIndex | Number | 当前点击图片的index | 0 |
+| pictureData | Array | 图片数组 | [] |
+| isDelete | Boolean | 是否显示删除按钮 | false |
+| deleStyle | Object | 删除按钮样式<br>（驼峰命名：backgroundColor） | {} |
+| picture-out | event | 图片单击回调事件（我用来做展示关闭事件回调） |  |
+| deletePicture | event | 删除事件回调（参数：index） |  |
 
 图片数组格式
 

@@ -12,8 +12,10 @@
         v-if="previewShow"
         :picture-index="pictureIndex"
         :picture-data="pictureData"
+        :deleStyle="deleStyle"
         :is-delete="isDelete"
-        @picture-out="previewShow = false">
+        @picture-out="previewShow = false"
+        @delete-picture="deletePicture">
       </picture-preview>
     </transition>
   </div>
@@ -28,6 +30,17 @@ export default {
     'picture-preview': picturePreview
   },
   props: {
+    isDelete: {
+      type: Boolean,
+      default: false
+    },
+    deleStyle: {
+      type: Object,
+      default: () => {
+        return {}
+      },
+      required: false
+    },
     boxStyle: {
       type: Object,
       default: () => {
@@ -57,8 +70,7 @@ export default {
     return {
       previewShow: false,
       pictureIndex: 0,
-      pictureData: 0,
-      isDelete: 0
+      pictureData: 0
     }
   },
   methods: {
@@ -66,7 +78,10 @@ export default {
       this.$data.previewShow = true;
       this.$data.pictureIndex = index;
       this.$data.pictureData = this.imgUrls;
-      this.$data.isDelete = false;
+    },
+    deletePicture(index) {
+      this.$data.previewShow = false;
+      this.$emit('delete-picture', index);
     }
   }
 }

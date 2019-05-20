@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <picture-list
-      :boxStyle="boxStyle"
-      :listStyle="listStyle"
-      :img-urls="imgUrls">
+      :box-style="boxStyle"
+      :list-style="listStyle"
+      :img-urls="imgUrls"
+      :is-delete="isDelete"
+      :dele-style="deleStyle"
+      @delete-picture="deletePicture">
     </picture-list>
     <ul>
       <li class="demo-imgs" v-for="(item, index) in imgUrls" :key="index">
@@ -15,7 +18,9 @@
         :picture-index="pictureIndex"
         :picture-data="pictureData"
         :is-delete="isDelete"
-        @picture-out="pictureOut">
+        :dele-style="deleStyle"
+        @picture-out="pictureOut"
+        @delete-picture="deletePicture">
       </picture-preview>
   </div>
 </template>
@@ -33,6 +38,8 @@ export default {
         width: '200px',
         height: '200px',
         margin: '10px 0 0 10px',
+      },
+      deleStyle: {
       },
       imgUrls: [{
           url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3345425463,2829351688&fm=26&gp=0.jpg',
@@ -59,10 +66,14 @@ export default {
       this.$data.previewShow = true;
       this.$data.pictureData = this.$data.imgUrls;
       this.$data.pictureIndex = index;
-      this.$data.isDelete = false;
+      this.$data.isDelete = true;
     },
     pictureOut() {
       this.$data.previewShow = false;
+    },
+    deletePicture(index) {
+      this.$data.previewShow = false;
+      console.log(`删除的图片序号是${index}`);
     }
   }
 }

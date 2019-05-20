@@ -1,25 +1,25 @@
 <template>
   <transition name="fade">
-  <div class="full-picture-bg">
-    <!-- <img class="back-images" @click.stop.prevent="pictureOut" src="../../assets/home_back_withe_icon_normal@2x.png" alt="" srcset=""> -->
-    <img class="delete-images" @click.stop.prevent="deletePic" v-if="isDelete" src="../../assets/home_delate_icon_normal@2x.png" alt="" srcset="">
-    <!-- Swiper -->
-    <div class="swiper-container picture-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item, index) in pictureLists" :key="index">
-          <div class="swiper-zoom-container" @click.stop="pictureClick">
-            <!-- <div class="picture-out-bg" @click.stop="pictureOut"></div> -->
-            <img :src="item.url" class="animated zoomIn">
+    <div class="full-picture-bg">
+      <!-- <img class="back-images" @click.stop.prevent="pictureOut" src="../../assets/home_back_withe_icon_normal@2x.png" alt="" srcset=""> -->
+      <span :style="[deleStyle]" class="delete-span" @click.stop="deletePic" v-if="isDelete">×</span>
+      <!-- Swiper -->
+      <div class="swiper-container picture-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="(item, index) in pictureLists" :key="index">
+            <div class="swiper-zoom-container" @click.stop="pictureClick">
+              <!-- <div class="picture-out-bg" @click.stop="pictureOut"></div> -->
+              <img :src="item.url" class="animated zoomIn">
+            </div>
           </div>
         </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination swiper-pagination-white"></div>
-      <!-- Add Navigation -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </div>
-  </div>
   </transition>
 </template>
 <script>
@@ -35,6 +35,13 @@ export default {
     };
   },
   props: {
+    deleStyle: {
+      type: Object,
+      default: () => {
+        return {}
+      },
+      required: false
+    },
     pictureIndex: {
       type: Number,
       default: 0
@@ -68,10 +75,8 @@ export default {
     // 创建帖子时删除图片
     deletePic() {
       // console.log(Object.prototype.toString.call(this.$data.pictureSwiper));
-      // console.log(this.$data.pictureSwiper);
-      // console.log(this.$data.pictureSwiper.activeIndex);
-      this.$data.pictureLists.splice(this.$data.pictureSwiper.activeIndex, 1);
-      this.$emit('deletePicture', this.$data.pictureLists);
+      // this.$data.pictureLists.splice(this.$data.pictureSwiper.activeIndex, 1);
+      this.$emit('delete-picture', this.$data.pictureSwiper.activeIndex);
     }
   },
   mounted() {
@@ -128,11 +133,17 @@ export default {
   width: 10px;
   z-index: 1002;
 }
-.delete-images{
+.delete-span{
   position: absolute;
-  top: 10px;
   right: 15px;
-  width: 20px;
+  top: 15px;
+  width: 26px;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 50%;
+  background: #fbfbfb78;
+  cursor: pointer;
+  color: #cccccc;
   z-index: 1002;
 }
 .swiper-pagination-bullet{
