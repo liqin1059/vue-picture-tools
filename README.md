@@ -27,9 +27,10 @@ import preview from 'vue-picture-tools'
 Vue.use(preview)
 ```
 
-在组件中使用
+## 使用
 
-> 包含图片列表&&展示
+-  包含图片列表&&展示
+删除图标样式可以自定义，可以引申为自己需要的点击的功能图标，回调参数为当前点击图片的index
 
 ``` html
 <picture-list
@@ -50,7 +51,7 @@ Vue.use(preview)
 | deleStyle | Boolean | 删除按钮样式<br>（驼峰命名：backgroundColor） | {} |
 | deletePicture | event | 删除事件回调（参数：index） |  |
 
-> 仅做图片查看
+-  仅做图片查看
 
 ``` html
 <picture-preview
