@@ -1,15 +1,14 @@
 # vue-picture-tools
 [![NPM version](https://img.shields.io/npm/v/vue-picture-tools.svg)](https://www.npmjs.com/package/vue-picture-tools)
 
-> vue picture preview tools👫
+-  vue picture preview tools👫
 
-> 支持pc端，移动端
+-  支持pc端，移动端
 
-> 支持放大
+-  支持放大
 
-> 支持键盘事件
+-  支持键盘事件
 
-🙋  
 🙋 单击关闭查看图片窗口
 🙋 双击放大
 
