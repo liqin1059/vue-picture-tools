@@ -4,7 +4,7 @@
       <li class="picture-li" v-for="(item, index) in imgUrls" :key="index"
         @click="showPicture(index, item)"
         :style="[listStyle]">
-        <img :src="item.url" alt="">
+        <img :src="item[urlName]" alt="">
       </li>
     </ul>
     <transition name="fadein-fade">
@@ -14,6 +14,7 @@
         :picture-data="pictureData"
         :deleStyle="deleStyle"
         :is-delete="isDelete"
+        :urlName="urlName"
         @picture-out="previewShow = false"
         @delete-picture="deletePicture">
       </picture-preview>
@@ -30,6 +31,11 @@ export default {
     'picture-preview': picturePreview
   },
   props: {
+    urlName: {
+      type: String,
+      default: 'url',
+      required: false
+    },
     isDelete: {
       type: Boolean,
       default: false

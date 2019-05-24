@@ -9,7 +9,7 @@
           <div class="swiper-slide" v-for="(item, index) in pictureLists" :key="index">
             <div class="swiper-zoom-container" @click.stop="pictureClick">
               <!-- <div class="picture-out-bg" @click.stop="pictureOut"></div> -->
-              <img :src="item.url" class="animated zoomIn">
+              <img :src="item[urlName]" class="animated zoomIn">
             </div>
           </div>
         </div>
@@ -35,6 +35,11 @@ export default {
     };
   },
   props: {
+    urlName: {
+      type: String,
+      default: 'url',
+      required: false
+    },
     deleStyle: {
       type: Object,
       default: () => {

@@ -7,6 +7,8 @@
 
 -  支持放大
 
+-  图片链接属性自定义
+
 -  支持键盘事件
 
 🙋 单击关闭查看图片窗口
@@ -35,10 +37,11 @@ Vue.use(preview)
 
 ``` html
 <picture-list
-  :box-style="boxStyle"
-  :list-style="listStyle"
-  :img-urls="imgUrls"
-  :is-delete="isDelete"
+  :box-style="{}"
+  :list-style="{}"
+  :urlName="'url'"
+  :img-urls="[]"
+  :is-delete="false"
   :dele-style="deleStyle"
   @delete-picture="deletePicture">
 </picture-list>
@@ -47,6 +50,7 @@ Vue.use(preview)
 |  ------ | ------ | ------ | ------ |
 | boxStyle | Object | 图片列表盒子样式<br>（驼峰命名：backgroundColor） | {} |
 | listStyle | Object | 图片样式<br>（驼峰命名：backgroundColor） | {} |
+| urlName | String | 图片链接属性名称 | 'url' |
 | imgUrls | Array | 图片数组 | [] |
 | isDelete | Boolean | 是否显示删除按钮 | false |
 | deleStyle | Boolean | 删除按钮样式<br>（驼峰命名：backgroundColor） | {} |
@@ -56,10 +60,11 @@ Vue.use(preview)
 
 ``` html
 <picture-preview
+  :urlName="'url'"
   :picture-index="0"
   :picture-data="[]"
   :is-delete="false"
-  :dele-style="deleStyle"
+  :dele-style="{}"
   @picture-out="pictureOut"
   @delete-picture="deletePicture">
 </picture-preview>
@@ -67,6 +72,7 @@ Vue.use(preview)
 
 | 参数 | 类型 | 备注 | 默认值 |
 |  ------ | ------ | ------ | ------ |
+| urlName | String | 图片链接属性名称 | 'url' |
 | pictureIndex | Number | 当前点击图片的index | 0 |
 | pictureData | Array | 图片数组 | [] |
 | isDelete | Boolean | 是否显示删除按钮 | false |

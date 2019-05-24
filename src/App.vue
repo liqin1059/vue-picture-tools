@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <picture-list
+      :urlName="'urlName'"
       :box-style="boxStyle"
       :list-style="listStyle"
       :img-urls="imgUrls"
@@ -10,11 +11,12 @@
     </picture-list>
     <ul>
       <li class="demo-imgs" v-for="(item, index) in imgUrls" :key="index">
-        <img :src="item.url" alt="" @click="pictureClick(item, index)">
+        <img :src="item[urlName]" alt="" @click="pictureClick(item, index)">
       </li>
     </ul>
     <picture-preview
         v-if="previewShow"
+        :urlName="urlName"
         :picture-index="pictureIndex"
         :picture-data="pictureData"
         :is-delete="isDelete"
@@ -33,6 +35,7 @@ export default {
       boxStyle: {
         width: '100%'
       },
+      urlName: 'urlName',
       listStyle: {
         boxWidth: '100%',
         width: '200px',
@@ -42,15 +45,15 @@ export default {
       deleStyle: {
       },
       imgUrls: [{
-          url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3345425463,2829351688&fm=26&gp=0.jpg',
+          urlName: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3345425463,2829351688&fm=26&gp=0.jpg',
           desc: '图片一'
         },
         {
-          url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2820343167,442028568&fm=26&gp=0.jpg',
+          urlName: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2820343167,442028568&fm=26&gp=0.jpg',
           desc: '图片二'
         },
         {
-          url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3885463997,795370374&fm=26&gp=0.jpg',
+          urlName: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3885463997,795370374&fm=26&gp=0.jpg',
           desc: '图片仨'
         }
       ],
