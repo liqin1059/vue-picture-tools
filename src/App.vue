@@ -7,6 +7,8 @@
       :img-urls="imgUrls"
       :is-delete="isDelete"
       :dele-style="deleStyle"
+      :zoom="false"
+      :speed="200"
       @delete-picture="deletePicture">
     </picture-list>
     <ul>
@@ -21,6 +23,8 @@
         :picture-data="pictureData"
         :is-delete="isDelete"
         :dele-style="deleStyle"
+        :zoom="true"
+        :speed="200"
         @picture-out="pictureOut"
         @delete-picture="deletePicture">
       </picture-preview>

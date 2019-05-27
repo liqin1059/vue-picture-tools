@@ -7,7 +7,7 @@
       <div class="swiper-container picture-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item, index) in pictureLists" :key="index">
-            <div class="swiper-zoom-container" @click.stop="pictureClick">
+            <div class="image-box" :class="{'swiper-zoom-container' : zoom}" @click.stop="pictureClick">
               <!-- <div class="picture-out-bg" @click.stop="pictureOut"></div> -->
               <img :src="item[urlName]" class="animated zoomIn">
             </div>
@@ -60,6 +60,16 @@ export default {
     isDelete: {
       type: Boolean,
       default: false
+    },
+    speed: {
+      type: Number,
+      default: 800,
+      required: false
+    },
+    zoom: {
+      type: Boolean,
+      default: true,
+      required: false
     }
   },
   methods: {
@@ -85,11 +95,12 @@ export default {
     }
   },
   mounted() {
+    let self = this;
     this.$data.pictureSwiper = new Swiper('.picture-container', {
-      speed: 800,
+      speed: self.speed,
       spaceBetween: 0,
       loop: false,
-      zoom: true,
+      zoom: self.zoom,
       observer: true,
       observeParents: true,
       watchSlidesVisibility: true,
@@ -166,12 +177,29 @@ export default {
   .swiper-container{
     height: 100%;
     position: relative;
+    .image-box{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      align-items: center;
+      text-align: center;
+      img{
+        width: 100%;
+        z-index: 999;
+        cursor: pointer;
+        -webkit-tap-highlight-color:transparent;
+      }
+    }
   }
   .swiper-zoom-container{
     img{
       width: 100%;
       z-index: 999;
       cursor: pointer;
+      -webkit-tap-highlight-color:transparent;
     }
   }
   .picture-out-bg{

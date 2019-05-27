@@ -15,6 +15,8 @@
         :deleStyle="deleStyle"
         :is-delete="isDelete"
         :urlName="urlName"
+        :zoom="zoom"
+        :speed="speed"
         @picture-out="previewShow = false"
         @delete-picture="deletePicture">
       </picture-preview>
@@ -31,6 +33,16 @@ export default {
     'picture-preview': picturePreview
   },
   props: {
+    speed: {
+      type: Number,
+      default: 800,
+      required: false
+    },
+    zoom: {
+      type: Boolean,
+      default: true,
+      required: false
+    },
     urlName: {
       type: String,
       default: 'url',

@@ -43,6 +43,8 @@ Vue.use(preview)
   :img-urls="[]"
   :is-delete="false"
   :dele-style="deleStyle"
+  :zoom="false"
+  :speed="200"
   @delete-picture="deletePicture">
 </picture-list>
 ```
@@ -54,6 +56,8 @@ Vue.use(preview)
 | imgUrls | Array | 图片数组 | [] |
 | isDelete | Boolean | 是否显示删除按钮 | false |
 | deleStyle | Boolean | 删除按钮样式<br>（驼峰命名：backgroundColor） | {} |
+| zoom | Boolean | 是否双击放大 | true |
+| speed | Number | 图片浏览切换速度 | 800 |
 | deletePicture | event | 删除事件回调（参数：index） |  |
 
 ###  仅做图片查看
@@ -65,6 +69,8 @@ Vue.use(preview)
   :picture-data="[]"
   :is-delete="false"
   :dele-style="{}"
+  :zoom="false"
+  :speed="200"
   @picture-out="pictureOut"
   @delete-picture="deletePicture">
 </picture-preview>
@@ -77,6 +83,8 @@ Vue.use(preview)
 | pictureData | Array | 图片数组 | [] |
 | isDelete | Boolean | 是否显示删除按钮 | false |
 | deleStyle | Object | 删除按钮样式<br>（驼峰命名：backgroundColor） | {} |
+| zoom | Boolean | 是否双击放大 | true |
+| speed | Number | 图片浏览切换速度 | 800 |
 | picture-out | event | 图片单击回调事件（我用来做展示关闭事件回调） |  |
 | deletePicture | event | 删除事件回调（参数：index） |  |
 
